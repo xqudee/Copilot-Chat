@@ -113,15 +113,15 @@ const MessageInput = () => {
         </div>
       )}
 
-      <form onSubmit={(e) => handleMessageSend(e)}>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => onInputChange(e)}
-        placeholder="Enter a prompt"
-        className='w-[-webkit-fill-available] rounded-[50px] bg-blue-input px-[16px] py-[14px] outline-none'
-      />
-    </form>
+      <form onSubmit={(e) => handleMessageSend(e)} className='pt-[8px]'>
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => onInputChange(e)}
+          placeholder="Enter a prompt"
+          className='w-[-webkit-fill-available] rounded-[50px] bg-blue-input px-[16px] py-[14px] outline-none'
+        />
+      </form>
 
       {isError && <div>Error fetching response from ChatGPT</div>}
     </div>
