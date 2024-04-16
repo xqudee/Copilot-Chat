@@ -12,6 +12,12 @@ module.exports = {
         },
         orange: {
           light: '#FBF2E9'
+        },
+        text: {
+          gray: '#787878'
+        },
+        menu: {
+          active: '#E1E1E1'
         }
       },
       boxShadow: {

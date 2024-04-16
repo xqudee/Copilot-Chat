@@ -15,12 +15,14 @@ const InteractionIcons = ({message} : {message: Message}) => {
       });
   }
   return (
-    <div className='flex justify-between'>
-      <div className='flex gap-[4px]'>
+    <div className='flex justify-between items-center'>
+      <div className='flex gap-[4px] items-center'>
         <div className='p-[4px]'><img src={like} /></div>
         <div className='p-[4px]'><img src={dislike} /></div>
         <div className='p-[4px] cursor-pointer relative' onClick={() => setMenuOpen(menuOpen => !menuOpen)}>
-          <img src={tuning} />
+          <div className={`${menuOpen && 'bg-menu-active'} rounded-[50%] p-[4px]`}>
+            <img src={tuning} />
+          </div>
           {menuOpen && (
             <ActionMenu />
           )}

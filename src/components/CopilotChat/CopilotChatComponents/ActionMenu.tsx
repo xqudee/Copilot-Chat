@@ -2,6 +2,11 @@ import React from 'react'
 import { useMutation } from 'react-query';
 import { fetchAIResponse } from '../../../hooks/ChatGptQuery';
 import useChatStore from '../../../store/chatStore';
+import shorter from '../../../assets/Minimize.svg'
+import longer from '../../../assets/Maximize.svg'
+import simpler from '../../../assets/Hamburger_Menu.svg'
+import casual from '../../../assets/Balloon.svg'
+import prof from '../../../assets/Suitcase.svg'
 
 type Menu = {
   name: string,
@@ -11,23 +16,28 @@ type Menu = {
 const menu = [
   {
     name: 'Shorter',
-    prompt: 'Make your previous message shorter'
+    prompt: 'Make your previous message shorter',
+    img: shorter
   },
   {
     name: 'Longer',
-    prompt: 'Make your previous message longer'
+    prompt: 'Make your previous message longer',
+    img: longer
   },
   {
     name: 'Simpler',
-    prompt: 'Make your previous message simpler'
+    prompt: 'Make your previous message simpler',
+    img: simpler
   },
   {
     name: 'Casual',
-    prompt: 'Make your previous message casual'
+    prompt: 'Make your previous message casual',
+    img: casual
   },
   {
     name: 'Professional',
-    prompt: 'Make your previous message professional'
+    prompt: 'Make your previous message professional',
+    img: prof
   }
 ]
 
@@ -54,10 +64,13 @@ const ActionMenu = () => {
   return (
     <div className='absolute w-[160px] bottom-0 left-[100%] flex flex-col gap-[5px] bg-white p-[8px] rounded-[8px] shadow-menu;
     '>
-      <div>Modify:</div>
+      <div className=' text-[12px] color-text-gray'>Modify:</div>
       <ul className='flex flex-col'>
         {menu.map((item, index) => (
-          <li className='py-[11px] px-[8px] rounded-[4px] hover:bg-blue-menu_item' onClick={() => sendMessage(item.prompt)}>{item.name}</li>
+          <li className='py-[11px] px-[8px] rounded-[4px] flex gap-[8px] hover:bg-blue-menu_item' onClick={() => sendMessage(item.prompt)}>
+            <img src={item.img} className='w-[16px]' />
+            {item.name}
+          </li>
         ))}
       </ul>
     </div>
